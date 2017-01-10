@@ -77,9 +77,24 @@ public class IntArrayWorker
     }
     System.out.println();
   }
-  
-  
-  /** 
+  
+  public int getCount(int num)
+  {
+      int count=0;
+      for(int[] aValue: matrix)
+      {
+          for(int fValue: aValue)
+          {
+             if(fValue==num)
+             {
+              count++;
+             }
+          }
+      }
+      return count;
+  }
+
+    /** 
    * fill the array with a pattern
    */
   public void fillPattern1()
