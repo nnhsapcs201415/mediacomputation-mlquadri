@@ -39,16 +39,30 @@
  */
 public class CollageLab
 {
-    /**
-     * Default constructor for objects of class CollageLab
-     */
-    public CollageLab()
-    {
-        
-    }
-    
     public static void main()
     {
+        Picture origanalPic = new Picture("White_Tiger.jpg");
+        Picture pic = new Picture("145x274.jpg");
+        //Origanal
+        origanalPic.explore();
         
+        //Change 1 (cropAndCopy )
+        //Row 
+        //col 
+        //end R:  C: 
+        pic.cropAndCopy( origanalPic, 22, 167, 25, 299, 0, 0 );
+        pic.explore();
+        
+        //Change 2 (Filter)
+        pic.negate();
+        pic.explore();
+        
+        //Change 3 (Transformations )
+        pic.
+        pic.explore();
+        
+        //Change 4
+        pic.grayscale();
+        pic.explore();
     }
 }
