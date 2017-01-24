@@ -97,6 +97,29 @@ public class Picture extends SimplePicture
             }
         }
     }
+
+    public void redFilter(String c, int by)
+    {
+        Pixel[][] pixels = this.getPixels2D();
+        for (Pixel[] rowArray : pixels)
+        {
+            for (Pixel pixelObj : rowArray)
+            {
+                if(!(c.equals("r")))
+                {
+                    pixelObj.setRed(pixelObj.getRed()/by);
+                }
+                if(!(c.equals("b")))
+                {
+                    pixelObj.setBlue(pixelObj.getBlue()/by);
+                }
+                if(!(c.equals("g")))
+                {
+                    pixelObj.setGreen(pixelObj.getGreen()/by);
+                }
+            }
+        }
+    }
 
     public void keepOnlyBlue()
     {
@@ -153,8 +176,9 @@ public class Picture extends SimplePicture
             }
         }
     }
-
-    public void scaleNew(Picture sourcePicture, int factor)
+
+
+    public Picture scaleNew(Picture sourcePicture, int factor)
     {
         Pixel copyPixel = null;
         Pixel pastePixel = null;
@@ -170,15 +194,18 @@ public class Picture extends SimplePicture
             {
                 copyPixel = copyPixels[row][col];
                 pastePixel = pastePixels[pasteRow][pasteCol];
-                for(int i = 0; i>factor; i++)
+                for(int row2 = 0; row2>factor; row2++)
                 {
-                    pastePixel.setColor(copyPixel.getColor());
-                    pastePixel = pastePixels[pasteRow+1][pasteCol+1];
+                    for(int col2 = 0; col2>factor; col2++)
+                    {
+                        pastePixel = pastePixels[pasteRow+row2][pasteCol*3+col2];
+                    }
                 }
-                pasteCol++;
+                pasteCol+=3;
             }
-            pasteRow++;
+            pasteRow+=3;
         }
+        return newPic;
     }
 
     /** Method that mirrors the picture around a 

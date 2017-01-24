@@ -96,8 +96,8 @@ public class PictureTester
   {
     Picture temple = new Picture("temple.jpg");
     temple.explore();
-    temple.scaleNew(temple, 2);
-    temple.explore();
+    Picture newpic=temple.scaleNew(temple, 2);
+    newpic.explore();
   }
   
   public static void testMirrorArms()
